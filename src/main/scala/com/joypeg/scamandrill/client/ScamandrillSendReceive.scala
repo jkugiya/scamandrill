@@ -27,7 +27,7 @@ trait ScamandrillSendReceive extends SimpleLogger {
    * unmarshalling of the response body is done via a partially applied function on the Future transformation.
    * Uses spray-can internally to fire the request and unmarshall the response, with spray-json to do that.
    * @param endpoint - the Mandrill API endpoint for the operation, for example '/messages/send.json'
-   * @param reqBody - the body of the post request already marshalled as json
+   * @param reqBodyF - the body of the post request already marshalled as json
    * @param handler - this is the unmarshaller fuction of the response body, partially applied function
    * @tparam S - the type of the expected body response once unmarshalled
    * @return - a future of the expected type S
@@ -61,7 +61,7 @@ trait ScamandrillSendReceive extends SimpleLogger {
   def shutdown(): Unit = {
     logger.info("asking all actor to close")
     Await.ready(Http().shutdownAllConnectionPools(), 1 second)
-    system.shutdown()
+    system.terminate()
     logger.info("actor system shut down")
   }
 }
