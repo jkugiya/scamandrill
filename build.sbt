@@ -21,7 +21,7 @@ resolvers ++= Seq("spray repo" at "http://repo.spray.io/")
 parallelExecution in Test := true
 
 libraryDependencies ++= {
-  val akkaV = "2.4.6"
+  val akkaV = "2.4.8"
   val specs2V: String = "3.8.3"
   Seq(
     "com.typesafe"      %   "config"                            % "1.3.0",
