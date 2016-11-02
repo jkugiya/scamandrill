@@ -29,7 +29,8 @@ libraryDependencies ++= {
     "com.typesafe.akka" %%  "akka-http-core"                    % akkaV,
     "com.typesafe.akka" %%  "akka-http-experimental"            % akkaV,
     "com.typesafe.akka" %%  "akka-http-spray-json-experimental" % akkaV,
-    "com.typesafe.akka" %%  "akka-slf4j"                        % akkaV
+    "com.typesafe.akka" %%  "akka-slf4j"                        % akkaV,
+    "com.google.guava"  %   "guava"                             % "18.0"
   ) ++ Seq(
     "org.specs2"        %%  "specs2-core"                       % specs2V   % "test",
     "org.specs2"        %%  "specs2-matcher"                    % specs2V   % "test",
