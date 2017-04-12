@@ -10,9 +10,9 @@ profileName := "com.github.dzsessona"
 
 description := "Scala client for Mandrill api"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-crossScalaVersions := Seq("2.10.5", "2.11.7")
+crossScalaVersions := Seq("2.10.5", "2.11.8")
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
@@ -21,18 +21,23 @@ resolvers ++= Seq("spray repo" at "http://repo.spray.io/")
 parallelExecution in Test := true
 
 libraryDependencies ++= {
-  val akkaV = "2.4.2"
+  val akkaV = "2.4.8"
+  val specs2V: String = "3.8.3"
   Seq(
-    "io.spray"          %% "spray-json"       % "1.3.2",
-    "com.typesafe.akka" %% "akka-actor"       % akkaV,
-    "com.typesafe.akka" %% "akka-http-experimental" % "2.4.2",
-    "com.typesafe.akka" %% "akka-http-spray-json-experimental" % "2.4.2",
-    "com.typesafe"      % "config"            % "1.3.0",
-    "org.slf4j"         % "slf4j-api"         % "1.7.14"
+    "com.typesafe"      %   "config"                            % "1.3.0",
+    "com.typesafe.akka" %%  "akka-actor"                        % akkaV,
+    "com.typesafe.akka" %%  "akka-http-core"                    % akkaV,
+    "com.typesafe.akka" %%  "akka-http-experimental"            % akkaV,
+    "com.typesafe.akka" %%  "akka-http-spray-json-experimental" % akkaV,
+    "com.typesafe.akka" %%  "akka-slf4j"                        % akkaV,
+    "com.google.guava"  %   "guava"                             % "18.0"
   ) ++ Seq(
-    "org.specs2"        %%  "specs2"          % "2.3.13"    % "test",
-    "org.scalatest"     %%  "scalatest"       % "2.1.6"     % "test->*",
-    "com.typesafe.akka" %% "akka-testkit"     % akkaV % "test"
+    "org.specs2"        %%  "specs2-core"                       % specs2V   % "test",
+    "org.specs2"        %%  "specs2-matcher"                    % specs2V   % "test",
+    "org.specs2"        %%  "specs2-matcher-extra"              % specs2V   % "test",
+    "org.specs2"        %%  "specs2-mock"                       % specs2V   % "test",
+    "org.scalatest"     %%  "scalatest"                         % "2.1.6"   % "test->*",
+    "com.typesafe.akka" %%  "akka-testkit"                      % akkaV     % "test"
   )
 }
 
