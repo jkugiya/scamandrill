@@ -5,6 +5,7 @@ import akka.http.scaladsl._
 import akka.http.scaladsl.model._
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Sink, Source}
+import com.joypeg.scamandrill.models.DefaultConfig
 import com.joypeg.scamandrill.utils.SimpleLogger
 
 import scala.concurrent.duration._
@@ -22,7 +23,7 @@ trait ScamandrillSendReceive extends SimpleLogger {
   implicit val system: ActorSystem
   implicit val materializer = ActorMaterializer()
 
-  import system.dispatcher
+  implicit val ec = system.dispatchers.lookup(DefaultConfig.DispatcherKey)
 
 
   /**
