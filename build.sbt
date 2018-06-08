@@ -1,12 +1,8 @@
-import SonatypeKeys._
-
-sonatypeSettings
-
 name := "scamandrill"
 
 organization := "com.github.dzsessona"
 
-profileName := "com.github.dzsessona"
+sonatypeProfileName := "com.github.dzsessona"
 
 description := "Scala client for Mandrill api"
 
